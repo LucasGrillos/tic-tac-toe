@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+
+    width: 100%;
+    height: 100vh;
+    max-height: 100%;
+
+    background-color: #1c1c1c
+}
+
+header {
+    height: 50px;
+    background-color: #004953; /* midnight green */
+    border-bottom: 3px solid black;
+
+    text-align: center;   
+}
+
+h1 {
+    line-height: 50px;
+}
+
+#gamespace {
+    height: calc(100% - 50px); /* offsets the size of the header */
+}
+
+/*
+    #start-father is "position: relative" because
+    https://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent
+    ABSOLUTE positions itself in relation to the nearest ancestor that 
+    has RELATIVE or ABSOLUTE positioning
+*/
+#start-father {
+    height: 100%;
+    position: relative;
+}
+
+#start-buttons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+
+    display: flex;
+}
+
+.start-btn {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 25px;
+
+    background: linear-gradient(to bottom right, #0a6b78, #004953);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.start-btn:after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    background: linear-gradient(to bottom right, #004953, #0a6b78);
+    border-radius: 10px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+
+    transition: opacity .5s;
+}
+
+.start-btn:hover:after {
+    opacity: 0%;
+}
+
+.icon-space {
+    z-index: 2;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+}
+
+.icon-space-x{
+}
+
+.icon-space-x:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+
+    height: 100%;
+    width: 10px;
+    background-color: #b43757; /* rose red */
+    border-radius: 5px;
+}
+
+.icon-space-x:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+
+
+    height: 100%;
+    width: 10px;
+    background-color: #b43757;
+    border-radius: 5px;
+}
+
+.icon-space-o {
+
+}
+
+.icon-space-o:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 75%;
+    width: 75%;
+    border-radius: 50%;
+    border: 10px solid #fdde6c;
+}
